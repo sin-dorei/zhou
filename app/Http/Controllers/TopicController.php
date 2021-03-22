@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $topics = Topic::with('category', 'user')->paginate(10);
+        $topics = Topic::with('category', 'user')->withOrder($request->order)->paginate(10);
 
         return view('topics.index', compact('topics'));
     }
