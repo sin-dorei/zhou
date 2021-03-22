@@ -9,7 +9,7 @@ class TopicController extends Controller
 {
     public function index()
     {
-        $topics = Topic::paginate(10);
+        $topics = Topic::with('category', 'user')->paginate(10);
 
         return view('topics.index', compact('topics'));
     }
