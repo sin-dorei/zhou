@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PageController@root')->name('root')->middleware('verified');
+Route::get('/', 'TopicController@index')->name('root')->middleware('verified');
 
 // 用户身份验证相关的路由
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -36,3 +36,5 @@ Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->na
 Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 Route::resource('users', 'UserController', ['only' => ['show', 'edit', 'update']]);
+
+Route::resource('topics', 'TopicController', ['except' => ['index']]);

@@ -19,6 +19,7 @@ class CreateTopicsTable extends Migration
             $table->text('body');
             $table->integer('user_id')->index();
             $table->integer('category_id')->index();
+            $table->integer('reply_count')->default(0);
             $table->timestamps();
         });
     }
