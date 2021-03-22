@@ -13,6 +13,7 @@ $factory->define(Topic::class, function (Faker $faker) {
         'body' => $faker->text(),
         'user_id' => $faker->numberBetween(1, 15),
         'category_id' => $faker->numberBetween(1, 4),
+        'excerpt' => $faker->sentence(10),
         'updated_at' => $updated_at,
         'created_at' => $faker->dateTimeThisYear($updated_at),
     ];

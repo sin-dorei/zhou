@@ -15,11 +15,12 @@ class CreateTopicsTable extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100)->index();
+            $table->string('title')->index();
             $table->text('body');
             $table->integer('user_id')->index();
             $table->integer('category_id')->index();
             $table->integer('reply_count')->default(0);
+            $table->string('excerpt')->nullable();
             $table->timestamps();
         });
     }
