@@ -12,6 +12,6 @@ class TopicSeeder extends Seeder
      */
     public function run()
     {
-        factory(Topic::class)->times(10)->create();
+        factory(Topic::class)->times(50)->create();
     }
 }
