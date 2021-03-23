@@ -21,6 +21,7 @@ class CreateTopicsTable extends Migration
             $table->integer('category_id')->index();
             $table->integer('reply_count')->default(0);
             $table->string('excerpt')->nullable();
+            $table->string('slug')->default('');
             $table->timestamps();
         });
     }

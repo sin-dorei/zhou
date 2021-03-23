@@ -11,13 +11,14 @@
         "php": "^7.3",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
+        "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.5",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "mews/captcha": "^3.2",
         "mews/purifier": "~3.3",
-        "overtrue/laravel-lang": "^4.2"
+        "overtrue/laravel-lang": "^4.2",
+        "overtrue/pinyin": "^4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "~3.5",

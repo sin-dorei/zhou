@@ -38,7 +38,7 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     protected $fillable = [
-        'title', 'body', 'category_id', 'excerpt',
+        'title', 'body', 'category_id', 'excerpt', 'slug',
     ];
 
     public function category()
@@ -68,5 +68,10 @@ class Topic extends Model
     public function scopeRecentReplied($query)
     {
         return $query->orderBy('updated_at', 'desc');
+    }
+
+    public function link($params = [])
+    {
+        return route('topics.show', array_merge([$this->id, $this->slug], $params));
     }
 }
