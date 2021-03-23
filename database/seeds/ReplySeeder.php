@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Topic;
+use App\Models\Reply;
 
-class TopicSeeder extends Seeder
+class ReplySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class TopicSeeder extends Seeder
      */
     public function run()
     {
-        factory(Topic::class)->times(10)->create();
+        factory(Reply::class)->times(100)->create();
     }
 }
