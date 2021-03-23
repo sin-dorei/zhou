@@ -60,7 +60,10 @@ class TopicController extends Controller
 
     public function destroy(Topic $topic)
     {
-        //
+        $this->authorize('destroy', $topic);
+        $topic->delete();
+
+        return redirect()->route('root')->with('success', '成功删除！');
     }
 
     public function uploadImage(Request $request, ImageUploadHandler $uploader)
