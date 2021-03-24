@@ -40,7 +40,22 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use Notifiable {
+        notify as protected laravelNotify;
+    }
+
+    public function notify($instance)
+    {
+        if ($this->id == \Auth::id()) {
+            return;
+        }
+
+        if (method_exists($instance, 'toDatabase')) {
+            $this->increment('notification_count');
+        }
+
+        $this->laravelNotify($instance);
+    }
 
     protected $fillable = [
         'name', 'email', 'password', 'introduction', 'avatar'
