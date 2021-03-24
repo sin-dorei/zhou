@@ -46,11 +46,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function notify($instance)
     {
-        if ($this->id == \Auth::id()) {
-            return;
-        }
-
         if (method_exists($instance, 'toDatabase')) {
+            if ($this->id == \Auth::id()) {
+                return;
+            }
             $this->increment('notification_count');
         }
 
